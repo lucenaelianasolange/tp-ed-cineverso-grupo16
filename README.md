@@ -9,7 +9,7 @@ Permite al usuario buscar,consultar y filtrar las peliculas ayudandolos a encont
 
 ## Cómo ejecutar
 1. clonar el repocitorio
-2. Ejecutar: python ui/terminal.py
+2. Ejecutar: py .\main.py
 
 
 ## estado 

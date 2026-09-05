@@ -47,9 +47,9 @@ def main ():
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
         if opcion == "1":
-            buscar(peliculas)
-        elif opcion == "2":
             listar(peliculas)
+        elif opcion == "2":
+            buscar(peliculas)
         elif opcion == "3":
             filtrar(peliculas)
         elif opcion == "4":
@@ -63,5 +63,5 @@ def main ():
             break
         else:
             print("Opción inválida. Por favor, intente nuevamente.")
-if __name__ == "__main__":
-    main()
+
+
