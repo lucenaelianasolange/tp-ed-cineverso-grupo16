@@ -1,0 +1,114 @@
+[
+    {
+        "titulo": "Matrix",
+        "genero": "Futuro",
+        "rating": 9.0,
+        "anio": 1999,
+        "director": "Lana Wachowski y Lilly Wachowski",
+        "reparto": ["Keanu Reeves", "Laurence Fishburne"]
+    },
+    {
+        "titulo": "Inception",
+        "genero": "Misterio",
+        "rating": 8.8,
+        "anio": 2010,
+        "director": "Christopher Nolan",
+        "reparto": ["Leonardo DiCaprio", "Joseph Gordon-Levitt"]
+    },
+    {
+        "titulo": "Titanic",
+        "genero": "Amor",
+        "rating": 7.8,
+        "anio": 1997,
+        "director": "James Cameron",
+        "reparto": ["Leonardo DiCaprio", "Kate Winslet"]
+    },
+    {
+        "titulo": "El Padrino",
+        "genero": "Emociones",
+        "rating": 9.2,
+        "anio": 1972,
+        "director": "Francis Ford Coppola",
+        "reparto": ["Marlon Brando", "Al Pacino"]
+    },
+    {
+        "titulo": "Toy Story",
+        "genero": "Animadas",
+        "rating": 8.3,
+        "anio": 1995,
+        "director": "John Lasseter",
+        "reparto": ["Tom Hanks", "Tim Allen"]
+    },
+    {
+        "titulo": "Jurassic Park",
+        "genero": "Aventura",
+        "rating": 8.2,
+        "anio": 1993,
+        "director": "Steven Spielberg",
+        "reparto": ["Sam Neill", "Laura Dern"]
+    },
+    {
+        "titulo": "Interestelar",
+        "genero": "Futuro",
+        "rating": 8.7,
+        "anio": 2014,
+        "director": "Christopher Nolan",
+        "reparto": ["Matthew McConaughey", "Anne Hathaway"]
+    },
+    {
+        "titulo": "Shrek",
+        "genero": "Animadas",
+        "rating": 7.9,
+        "anio": 2001,
+        "director": "Andrew Adamson y Vicky Jenson",
+        "reparto": ["Mike Myers", "Eddie Murphy"]
+    },
+    {
+        "titulo": "Gladiador",
+        "genero": "Adrenalina",
+        "rating": 8.5,
+        "anio": 2000,
+        "director": "Ridley Scott",
+        "reparto": ["Russell Crowe", "Joaquin Phoenix"]
+    },
+    {
+        "titulo": "Avatar",
+        "genero": "Futuro",
+        "rating": 7.8,
+        "anio": 2009,
+        "director": "James Cameron",
+        "reparto": ["Sam Worthington", "Zoe Saldana"]
+    },
+    {
+        "titulo": "El Señor de los Anillos: La Comunidad del Anillo",
+        "genero": "Aventura",
+        "rating": 8.8,
+        "anio": 2001,
+        "director": "Peter Jackson",
+        "reparto": ["Elijah Wood", "Ian McKellen"]
+    },
+    {
+        "titulo": "La La Land",
+        "genero": "Amor",
+        "rating": 8.0,
+        "anio": 2016,
+        "director": "Damien Chazelle",
+        "reparto": ["Ryan Gosling", "Emma Stone"]
+    },
+    {
+        "titulo": "El Gran Hotel Budapest",
+        "genero": "Comedia",
+        "rating": 8.1,
+        "anio": 2014,
+        "director": "Wes Anderson",
+        "reparto": ["Ralph Fiennes", "F. Murray Abraham"]
+    },
+    {
+        "titulo": "Coco",
+        "genero": "Animadas",
+        "rating": 8.4,
+        "anio": 2017,
+        "director": "Lee Unkrich y Adrian Molina",
+        "reparto": ["Anthony Gonzalez", "Gael García Bernal"]
+    }
+]
