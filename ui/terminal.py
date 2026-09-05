@@ -22,11 +22,46 @@ def mostrar_menu():
     print("7. Salir")
     print("#"*40)
 
-def Buscar(peliculas):
+def buscar(peliculas):
     titulo = input("titulo a buscar: ")
     for p in peliculas:
         if titulo.lower() in p.titulo.lower():
             print(p)
     print("fin de resultados") 
 
+
+
 def listar(peliculas):
+    for i, p in enumerate(peliculas, 1):
+        print(f"{i}. {p}")
+
+def filtrar(peliculas):
+    genero = input("Ingrese el género a filtrar: ")
+    for p in peliculas:
+        if genero.lower() in p.genero.lower():
+            print(p)
+
+def main ():
+    peliculas = cargar_datos()
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            buscar(peliculas)
+        elif opcion == "2":
+            listar(peliculas)
+        elif opcion == "3":
+            filtrar(peliculas)
+        elif opcion == "4":
+            print("Funcionalidad de recomendaciones aún no implementada.")
+        elif opcion == "5":
+            print("Funcionalidad de historial aún no implementada.")
+        elif opcion == "6":
+            print("Funcionalidad de borrar historial aún no implementada.")
+        elif opcion == "7":
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción inválida. Por favor, intente nuevamente.")
+if __name__ == "__main__":
+    main()
