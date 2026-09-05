@@ -21,9 +21,9 @@ def mostrar_menu():
     print("7. Salir")
 
 def Buscar(peliculas):
-    titulo = input("titulo a buscar:")
+    titulo = input("titulo a buscar: ")
     for p in peliculas:
         if titulo.lower() in p.titulo.lower():
             print(p)
-
-    # print("fin de resultado") 
+    print("fin de resultados") 
+def listar(peliculas):
