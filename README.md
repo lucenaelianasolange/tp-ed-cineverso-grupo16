@@ -2,7 +2,7 @@
 Permite al usuario buscar,consultar y filtrar las peliculas ayudandolos a encontrar la mejor optción que se adapten a sus preferencias
 
 ## Integrantes
-- Naule Escobar
+- Nahuel Escobar
 - Eliana Lucena
 - Franco Mancilla
 
