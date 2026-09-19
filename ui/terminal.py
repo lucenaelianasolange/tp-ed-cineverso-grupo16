@@ -1,5 +1,6 @@
 from modelos.peliculas import Pelicula
 import json
+from estructuras.arbol_binario import ArbolBST
 
 def cargar_datos():
     with open("datos/peliculas.json", "r", encoding="utf-8") as f:
@@ -63,5 +64,3 @@ def main ():
             break
         else:
             print("Opción inválida. Por favor, intente nuevamente.")
-
-
