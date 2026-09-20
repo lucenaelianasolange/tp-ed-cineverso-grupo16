@@ -1,5 +1,6 @@
 from modelos.peliculas import Pelicula
 import json
+
 from estructuras.arbol_binario import ArbolBST
 
 def cargar_datos():
@@ -23,13 +24,14 @@ def mostrar_menu():
     print("7. Salir")
     print("#"*40)
 
-def buscar(peliculas):
+def buscar(arbol):
     titulo = input("titulo a buscar: ")
-    for p in peliculas:
-        if titulo.lower() in p.titulo.lower():
-            print(p)
-    print("fin de resultados") 
-
+    resultado = arbol.buscar(titulo.lower(), clave=lambda e: e.titulo.lower())
+    if resultado:
+        print("pelicula encontrada: ", resultado)
+    else:
+        print("No se encontró la película.")
+    print("fin de resultados")
 
 
 def listar(peliculas):
@@ -44,13 +46,16 @@ def filtrar(peliculas):
 
 def main ():
     peliculas = cargar_datos()
+    arbol = ArbolBST()
+    for pelicula in peliculas:
+        arbol.insertar(pelicula, clave=lambda e: e.titulo.lower())
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
         if opcion == "1":
             listar(peliculas)
         elif opcion == "2":
-            buscar(peliculas)
+            buscar(arbol)
         elif opcion == "3":
             filtrar(peliculas)
         elif opcion == "4":
