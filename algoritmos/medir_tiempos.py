@@ -2,16 +2,24 @@ from modelos.peliculas import Pelicula
 
 import random
 
-from estructuras.arbol import ArbolBST
+from estructuras.arbol_binario import ArbolBST
 
 import timeit
 
-import json
+#dataset
+class PeliculaTest(Pelicula):
+    def busqueda_secuencial(lista,pelicula):
+        for p in lista:
+            if pelicula == p.titulo.lower():
+                print("ddssssss")
+                print(p)
+                return p
 
-# dataset
+
+arbol = ArbolBST()
+
 
 def generar_peliculas(cantidad):
-
     directores = [
 
         "Christopher Nolan",
@@ -44,9 +52,9 @@ def generar_peliculas(cantidad):
 
     for i in range(cantidad):
 
-        pelicula = Pelicula(
+        pelicula = PeliculaTest(
 
-            titulo=f"Película {i}",
+            titulo=f"Pelicula {i}",
 
             director=random.choice(directores),
 
@@ -57,28 +65,37 @@ def generar_peliculas(cantidad):
         )
 
         peliculas.append(pelicula)
+        arbol.insertar(pelicula,lambda p:p.titulo.lower())
 
     return peliculas
 
-N_DATOS = 10000
+#Cantidad de Peliculas
+N_DATOS = 100
 
 list_peliculas = generar_peliculas(N_DATOS)
 
 random.shuffle(list_peliculas)
 
 
-N = 100
 
-arbol = ArbolBST()
+#Cantidad de veces que se repite
+N = 1
+
+result_secuencial = PeliculaTest.busqueda_secuencial(list_peliculas,"pelicula 1")
+resul_binario = arbol.buscar('pelicula 1', lambda p: p.titulo.lower())
+
+print(result_secuencial,"secuencial")
+
+print(resul_binario,"binario")
+
+tiempo_secuencial = timeit.timeit(lambda:PeliculaTest.busqueda_secuencial(list_peliculas,'pelicula 1'),number=N)
+tiempo_binario = timeit.timeit(lambda:arbol.buscar('pelicula 1', lambda p: p.titulo.lower()),number=N)
 
 
-tiempo_secuencial = timeit.timeit(lambda:Pelicula.busqueda_secuencial(list_peliculas,'Película 1'),number=N)
-tiempo_binario = timeit.timeit(lambda:arbol.busuqueda('Película 1', lambda p: p.titulo.lower()),number=N)
-
-
-print(f"tiempor en busqueda secuencial {tiempo_secuencial}")
-print(f"tiempor en busqueda en arbol binario {tiempo_binario} ")
+print(f"tiempo en busqueda secuencial {tiempo_secuencial:.8f}")
+print(f"tiempo en busqueda en arbol binario {tiempo_binario:.8f} ")
 
 
 print(f"Secuencial promedio: {tiempo_secuencial/N:.8f} s")
 print(f"Árbol promedio:       {tiempo_binario/N:.8f} s")
+
