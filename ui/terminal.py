@@ -100,23 +100,17 @@ def main ():
             genero = input("Ingrese el género a filtrar: ")
             match genero:
                 case "1":
-                    for hijo in accion.hijos:
-                        print(hijo.dato)
+                   arbol_general.listar_hijos(accion)
                 case "2":
-                    for hijo in ciencia.hijos:
-                        print(hijo.dato)
+                    arbol_general.listar_hijos(ciencia)
                 case "3":
-                    for hijo in amor.hijos:
-                        print(hijo.dato)
+                    arbol_general.listar_hijos(amor)
                 case "4":
-                    for hijo in comedia.hijos:
-                        print(hijo.dato)
+                    arbol_general.listar_hijos(comedia)
                 case "5":
-                    for hijo in animadas.hijos:
-                        print(hijo.dato)
+                    arbol_general.listar_hijos(animadas)
                 case "6":
-                    for hijo in suspenso.hijos:
-                        print(hijo.dato)
+                    arbol_general.listar_hijos(suspenso)
                 case _:
                     print("Género no válido.")
 
