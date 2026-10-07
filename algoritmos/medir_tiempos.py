@@ -1,20 +1,16 @@
 from modelos.peliculas import Pelicula
-
 import random
-
 from estructuras.arbol_binario import ArbolBST
-
 import timeit
 
 #dataset
 class PeliculaTest(Pelicula):
-    def busqueda_secuencial(lista,pelicula):
+    def busqueda_secuencial(lista,anio):
         for p in lista:
-            if pelicula == p.titulo.lower():
-                print("ddssssss")
+            if anio == p.anio:
+
                 print(p)
                 return p
-
 
 arbol = ArbolBST()
 
@@ -23,13 +19,9 @@ def generar_peliculas(cantidad):
     directores = [
 
         "Christopher Nolan",
-
         "Steven Spielberg",
-
         "James Cameron",
-
         "Martin Scorsese",
-
         "Quentin Tarantino"
 
     ]
@@ -37,59 +29,56 @@ def generar_peliculas(cantidad):
     generos = [
 
         "Acción",
-
         "Comedia",
-
         "Drama",
-
         "Terror",
-
         "Ciencia ficción"
-
     ]
 
     peliculas = []
 
     for i in range(cantidad):
-
+        aux = i
         pelicula = PeliculaTest(
 
             titulo=f"Pelicula {i}",
 
             director=random.choice(directores),
 
-            anio=random.randint(1980, 2025),
+            anio=aux,
 
             genero=random.choice(generos)
 
         )
 
         peliculas.append(pelicula)
-        arbol.insertar(pelicula,lambda p:p.titulo.lower())
 
     return peliculas
 
 #Cantidad de Peliculas
-N_DATOS = 100
+N_DATOS = 1000
 
 list_peliculas = generar_peliculas(N_DATOS)
 
 random.shuffle(list_peliculas)
 
+for p in list_peliculas:
+    arbol.insertar(p, lambda p: p.titulo.lower())
 
 
 #Cantidad de veces que se repite
 N = 1
 
-result_secuencial = PeliculaTest.busqueda_secuencial(list_peliculas,"pelicula 1")
-resul_binario = arbol.buscar('pelicula 1', lambda p: p.titulo.lower())
 
-print(result_secuencial,"secuencial")
+tiempo_secuencial = timeit.timeit(lambda:PeliculaTest.busqueda_secuencial(list_peliculas,100),number=N)
+tiempo_binario = timeit.timeit(lambda:arbol.buscar("pelicula 100", lambda p: p.titulo.lower()),number=N)
 
-print(resul_binario,"binario")
 
-tiempo_secuencial = timeit.timeit(lambda:PeliculaTest.busqueda_secuencial(list_peliculas,'pelicula 1'),number=N)
-tiempo_binario = timeit.timeit(lambda:arbol.buscar('pelicula 1', lambda p: p.titulo.lower()),number=N)
+busqueda_secuencial = PeliculaTest.busqueda_secuencial(list_peliculas,100)
+busqueda_arbol = arbol.buscar("pelicula 100", lambda p: p.titulo.lower())   
+
+print(f"Resultado busqueda secuencial: {busqueda_secuencial}")
+print(f"Resultado busqueda arbol: {busqueda_arbol}")
 
 
 print(f"tiempo en busqueda secuencial {tiempo_secuencial:.8f}")
@@ -98,4 +87,6 @@ print(f"tiempo en busqueda en arbol binario {tiempo_binario:.8f} ")
 
 print(f"Secuencial promedio: {tiempo_secuencial/N:.8f} s")
 print(f"Árbol promedio:       {tiempo_binario/N:.8f} s")
+
+print(f"Altura del árbol BST: {arbol.altura()}")
 
