@@ -52,4 +52,44 @@ errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son
   Tiempo búsqueda BST (ms): 165.3621
   Tiempo búsqueda AVL (ms): 0.9971
 
+## Datos de prueba
+##script de prueba:
 
+Géneros
+├── Acción
+│   ├── acción
+│   ├── acción y aventura
+│   └── guerra
+│
+├── Ciencia ficción
+│   ├── ciencia ficción
+│   ├── ficción
+│   ├── ciencia ficción y fantasía
+│   ├── fantasía
+│   ├── espacio
+│   └── futuro
+│
+├── Amor
+│   ├── amor
+│   ├── romántica
+│   └── romance
+│
+├── Comedia
+│   ├── comedia
+│   └── comedia romántica
+│
+├── Animadas
+│   ├── animadas
+│   ├── dibujos animados
+│   ├── anime
+│   ├── animación
+│   └── animación 3d
+│
+└── Suspenso
+    ├── suspenso
+    ├── thriller
+    ├── misterio
+    ├── suspense
+    ├── terror
+    ├── drama
+    └── drama psicológico
