@@ -33,7 +33,8 @@ def mostrar_generos(arbol_general):
     else:
         print("Géneros disponibles:")
         for hijo in arbol_general.raiz.hijos:
-            print(f"-{aux + 1} {hijo.dato}")
+            aux += 1
+            print(f"-{aux} {hijo.dato}")
     
 
 def buscar(arbol):
@@ -97,26 +98,43 @@ def main ():
             filtrar(peliculas)
         elif opcion == "4":
             mostrar_generos(arbol_general)
-            genero = input("Ingrese el género a filtrar: ")
+            genero = input("Ingrese el número del género para ver las películas recomendadas: ")
             match genero:
                 case "1":
-                   arbol_general.listar_hijos(accion)
+                   result = arbol_general.listar_hijos(accion)
+                   print("Películas de Acción:")
+                   for p in result:
+                       print(f" - {p}")
+
                 case "2":
-                    arbol_general.listar_hijos(ciencia)
+                    result = arbol_general.listar_hijos(ciencia)
+                    print("Películas de Ciencia Ficción:")
+                    for p in result:
+                        print(f" - {p}")
                 case "3":
-                    arbol_general.listar_hijos(amor)
+                    result = arbol_general.listar_hijos(amor)
+                    print("Películas de Amor:")
+                    for p in result:
+                        print(f" - {p}")
                 case "4":
-                    arbol_general.listar_hijos(comedia)
+                    result = arbol_general.listar_hijos(comedia)
+                    print("Películas de Comedia:")
+                    for p in result:
+                        print(f" - {p}")
                 case "5":
-                    arbol_general.listar_hijos(animadas)
+                    result = arbol_general.listar_hijos(animadas)
+                    print("Películas de Animadas:")
+                    for p in result:
+                        print(f" - {p}")
                 case "6":
-                    arbol_general.listar_hijos(suspenso)
+                    result = arbol_general.listar_hijos(suspenso)
+                    print("Películas de Suspenso:")
+                    for p in result:
+                        print(f" - {p}")
                 case _:
                     print("Género no válido.")
 
-            # print aplitur
-            rsult = arbol_general.amplitud()
-            print(rsult)
+
 
         elif opcion == "5":
             print("Funcionalidad de historial aún no implementada.")
