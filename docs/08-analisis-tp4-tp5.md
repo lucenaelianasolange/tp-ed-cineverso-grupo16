@@ -149,6 +149,3 @@ errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son
   Tiempo búsqueda BST (ms): 165.3621
   Tiempo búsqueda AVL (ms): 0.9971
 
-
-
-
