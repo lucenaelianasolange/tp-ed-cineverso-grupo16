@@ -138,6 +138,17 @@ script de prueba python -m estructura.arbol_general
 │              │  Árbol Gen.  │               │ 
 └──────────────┴──────────────┴───────────────┘
 
+
+## Conclusión
+
+- El AVL garantiza búsquedas eficientes sin importar el orden de inserción, resolviendo el problema
+principal de desbalance del BST.
+- El árbol general permite organizar el dominio en jerarquías significativas que mejoran la
+experiencia del usuario al explorar categorías.
+- Ambas estructuras se complementan: el AVL resuelve búsqueda eficiente por clave, el árbol general
+organiza la navegación por categorías.
+- Ninguna de las dos se usó "por cumplir": el AVL resuelve un problema real (desbalance) y el árbol
+general resuelve otro (jerarquización del dominio)
 ## Errores que tuvimos 
 
 a la hora de importar el arbol avl tivimos errores de importacion de la cual tivimos que modificar las importaciones de pruevas,
