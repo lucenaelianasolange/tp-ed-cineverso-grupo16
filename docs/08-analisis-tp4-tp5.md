@@ -41,15 +41,114 @@ $$1,2,3,4,5,6,7,8,9, ...900$$
 
 se utilizaron 900 elementos ordenados para mostrar la diferencia entre un tiempo de ejecucion y otro, no se usaron cadena de texto porque tenian que ser exactamente de la misma longitud ya que python al comparar usa caracter por caracter teniendo bug a la hora de usar letras y numeros juntos 
 
+
+## Arbol general
+
+### que es un arbol general
+A diferencia del árbol binario donde cada nodo tiene máximo 2 hijos, un árbol general permite que cada
+nodo tenga cualquier cantidad de hijos. Esto lo hace ideal para representar jerarquías naturales.
+
+### jerarquia elegida del dominio
+Pelicula 
+├── Acción -> categoria 
+│   ├── acción 
+│   ├── acción y aventura
+│   └── guerra
+│
+├── Ciencia ficción
+│   ├── ciencia ficción
+│   ├── ficción
+│   ├── ciencia ficción y fantasía
+│   ├── fantasía
+│   ├── espacio
+│   └── futuro
+│
+├── Amor
+│   ├── amor
+│   ├── romántica
+│   └── romance
+│
+├── Comedia
+│   ├── comedia
+│   └── comedia romántica
+│
+├── Animadas
+│   ├── animadas
+│   ├── dibujos animados
+│   ├── anime
+│   ├── animación
+│   └── animación 3d
+│
+└── Suspenso
+    ├── suspenso
+    ├── thriller
+    ├── misterio
+    ├── suspense
+    ├── terror
+    ├── drama
+    └── drama psicológico
+
+
+**como funciona la jerarquia?**
+- Los hijos de la raiz son las categorias definidas 
+- dentro de las categorias estan definidos los generos que entran en dicha categoria
+
+
+### Prueva del arbol general 
+
+=== Árbol General de Categorías ===
+Raíz: Películas
+Altura: 3
+Cantidad de nodos: 11
+
+--- Recorrido en amplitud ---
+['Películas', 'Ciencia Ficción', 'Acción', 'Comedia', 'Cyberpunk', 'Viajes temporales', 'Inteligencia artificial', 'Superhéroes', 'Guerra', 'Comedia romántica', 'Comedia negra']
+
+--- Recorrido en profundidad (preorder) ---
+['Películas', 'Ciencia Ficción', 'Cyberpunk', 'Viajes temporales', 'Inteligencia artificial', 'Acción', 'Superhéroes', 'Guerra', 'Comedia', 'Comedia romántica', 'Comedia negra']
+
+--- Recorrido en profundidad (postorder) ---
+['Cyberpunk', 'Viajes temporales', 'Inteligencia artificial', 'Ciencia Ficción', 'Superhéroes', 'Guerra', 'Acción', 'Comedia romántica', 'Comedia negra', 'Comedia', 'Películas']
+
+--- Niveles ---
+  Nivel 0: ['Películas']
+  Nivel 1: ['Ciencia Ficción', 'Acción', 'Comedia']
+  Nivel 2: ['Cyberpunk', 'Viajes temporales', 'Inteligencia artificial', 'Superhéroes', 'Guerra', 'Comedia romántica', 'Comedia negra']
+
+--- Hijos de 'Ciencia Ficción' ---
+['Cyberpunk', 'Viajes temporales', 'Inteligencia artificial']
+
+--- Buscar 'Cyberpunk' ---
+Encontrado: Nodo(Cyberpunk)
+
+script de prueba python -m estructura.arbol_general
+
+
+## Integracion con la aplicacion
+
+### 
+
+┌─────────────────────────────────────────────┐ 
+│           Interfaz de terminal              │ 
+├──────────────┬──────────────┬───────────────┤ 
+│  Opción 2:   │  Opción 3:   │               │
+│  Buscar      │  Explorar    │               │ 
+│              │  categorías  │               │ 
+│  usa: AVL    │  usa:        │               │ 
+│              │  Árbol Gen.  │               │ 
+└──────────────┴──────────────┴───────────────┘
+
 ## Errores que tuvimos 
 
 a la hora de importar el arbol avl tivimos errores de importacion de la cual tivimos que modificar las importaciones de pruevas,
-errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son capaces de comprovar si "matrix y jumanjy" y ordenarlas pero a la hora de comparar "10" "2" y "1" los ordena "1" "10"  "2"
+errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son capaces de comprovar si "matrix y jumanji" y ordenarlas pero a la hora de comparar "10" "2" y "1" los ordena "1" "10"  "2"
 
   Altura BST: 900
   Altura AVL: 10
   BST es más alto que AVL: True
   Tiempo búsqueda BST (ms): 165.3621
   Tiempo búsqueda AVL (ms): 0.9971
+
+
 
 
