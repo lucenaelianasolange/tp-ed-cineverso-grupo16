@@ -18,7 +18,7 @@ def mostrar_menu():
     print("=== Menú de Cineverso ===")
     print("1. Mostrar todas las películas")
     print("2. Buscar película por título")
-    print("3. Buscar pelicula por filtro")
+    print("3. Buscar pelicula por categoria")
     print("4.Ver recomendaciones de películas")
     print("5. Ver historial de búsquedas")
     print("6.Borrar historial de búsquedas")
@@ -33,7 +33,8 @@ def mostrar_generos(arbol_general):
     else:
         print("Géneros disponibles:")
         for hijo in arbol_general.raiz.hijos:
-            print(f"-{aux + 1} {hijo.dato}")
+            aux += 1
+            print(f"-{aux} {hijo.dato}")
     
 
 def buscar(arbol):
@@ -72,7 +73,7 @@ def main ():
 
     for pelicula in peliculas:
         arbol.insertar(pelicula, clave=lambda e: e.titulo.lower())
-        if pelicula.genero.lower() in ["acción", "acción y aventura", "acción","guerra"]:
+        if pelicula.genero.lower() in ["accion", "acción y aventura", "acción","guerra"]:
             arbol_general.agregar_hijo(accion, pelicula.titulo)
         elif pelicula.genero.lower() in ["ciencia ficción", "ficción", "ciencia ficción y fantasía", "fantasia","espacio", "futuro"]:
             arbol_general.agregar_hijo(ciencia, pelicula.titulo)
@@ -93,30 +94,47 @@ def main ():
             listar(peliculas)
         elif opcion == "2":
             buscar(arbol)
-        elif opcion == "3":
-            filtrar(peliculas)
         elif opcion == "4":
+            pass
+        elif opcion == "3":
             mostrar_generos(arbol_general)
-            genero = input("Ingrese el género a filtrar: ")
+            genero = input("Ingrese el número del género para ver las películas recomendadas: ")
             match genero:
                 case "1":
-                   arbol_general.listar_hijos(accion)
+                   result = arbol_general.listar_hijos(accion)
+                   print("Películas de Acción:")
+                   for p in result:
+                       print(f" - {p}")
+
                 case "2":
-                    arbol_general.listar_hijos(ciencia)
+                    result = arbol_general.listar_hijos(ciencia)
+                    print("Películas de Ciencia Ficción:")
+                    for p in result:
+                        print(f" - {p}")
                 case "3":
-                    arbol_general.listar_hijos(amor)
+                    result = arbol_general.listar_hijos(amor)
+                    print("Películas de Amor:")
+                    for p in result:
+                        print(f" - {p}")
                 case "4":
-                    arbol_general.listar_hijos(comedia)
+                    result = arbol_general.listar_hijos(comedia)
+                    print("Películas de Comedia:")
+                    for p in result:
+                        print(f" - {p}")
                 case "5":
-                    arbol_general.listar_hijos(animadas)
+                    result = arbol_general.listar_hijos(animadas)
+                    print("Películas de Animadas:")
+                    for p in result:
+                        print(f" - {p}")
                 case "6":
-                    arbol_general.listar_hijos(suspenso)
+                    result = arbol_general.listar_hijos(suspenso)
+                    print("Películas de Suspenso:")
+                    for p in result:
+                        print(f" - {p}")
                 case _:
                     print("Género no válido.")
 
-            # print aplitur
-            rsult = arbol_general.amplitud()
-            print(rsult)
+
 
         elif opcion == "5":
             print("Funcionalidad de historial aún no implementada.")
