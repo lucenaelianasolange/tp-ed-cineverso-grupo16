@@ -49,6 +49,8 @@ A diferencia del árbol binario donde cada nodo tiene máximo 2 hijos, un árbol
 nodo tenga cualquier cantidad de hijos. Esto lo hace ideal para representar jerarquías naturales.
 
 ### jerarquia elegida del dominio
+
+```text
 Pelicula 
 ├── Acción -> categoria 
 │   ├── acción 
@@ -87,7 +89,7 @@ Pelicula
     ├── terror
     ├── drama
     └── drama psicológico
-
+```
 
 **como funciona la jerarquia?**
 - Los hijos de la raiz son las categorias definidas 
@@ -95,7 +97,7 @@ Pelicula
 
 
 ### Prueva del arbol general 
-
+```
 === Árbol General de Categorías ===
 Raíz: Películas
 Altura: 3
@@ -120,14 +122,20 @@ Cantidad de nodos: 11
 
 --- Buscar 'Cyberpunk' ---
 Encontrado: Nodo(Cyberpunk)
+```
 
-script de prueba python -m estructura.arbol_general
+
+### script de prueba 
+script para probar  de arbol general 
+
+```
+py -m test.arbol_general
+```
 
 
 ## Integracion con la aplicacion
 
-### 
-
+```
 ┌─────────────────────────────────────────────┐ 
 │           Interfaz de terminal              │ 
 ├──────────────┬──────────────┬───────────────┤ 
@@ -137,7 +145,7 @@ script de prueba python -m estructura.arbol_general
 │  usa: AVL    │  usa:        │               │ 
 │              │  Árbol Gen.  │               │ 
 └──────────────┴──────────────┴───────────────┘
-
+```
 
 ## Conclusión
 
