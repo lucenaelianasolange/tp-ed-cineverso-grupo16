@@ -8,8 +8,6 @@ class PeliculaTest(Pelicula):
     def busqueda_secuencial(lista,anio):
         for p in lista:
             if anio == p.anio:
-
-                print(p)
                 return p
 
 arbol = ArbolBST()
@@ -63,7 +61,7 @@ list_peliculas = generar_peliculas(N_DATOS)
 random.shuffle(list_peliculas)
 
 for p in list_peliculas:
-    arbol.insertar(p, lambda p: p.titulo.lower())
+    arbol.insertar(p, lambda p: p.anio)
 
 
 #Cantidad de veces que se repite
@@ -71,11 +69,11 @@ N = 1
 
 
 tiempo_secuencial = timeit.timeit(lambda:PeliculaTest.busqueda_secuencial(list_peliculas,100),number=N)
-tiempo_binario = timeit.timeit(lambda:arbol.buscar("pelicula 100", lambda p: p.titulo.lower()),number=N)
+tiempo_binario = timeit.timeit(lambda:arbol.buscar(1000, lambda p: p.anio),number=N)
 
 
 busqueda_secuencial = PeliculaTest.busqueda_secuencial(list_peliculas,100)
-busqueda_arbol = arbol.buscar("pelicula 100", lambda p: p.titulo.lower())   
+busqueda_arbol = arbol.buscar(1000, lambda p: p.anio)   
 
 print(f"Resultado busqueda secuencial: {busqueda_secuencial}")
 print(f"Resultado busqueda arbol: {busqueda_arbol}")
