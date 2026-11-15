@@ -18,20 +18,18 @@
     4. El sistema lo busca sin (distinguir enter mayusculas)
 - **Flujo alternativo**: si no lo encuentra el sistema informa que la pelicula no se encontro
 
-## Casos de uso: Buscar pelicula por Categoria
+## Casos de uso: Buscar pelicula por Generos
 - **Actor**: Usuario
 - **Precondición**: 
-    1. Las categorías deben estar declaradas en arbol general (AG)
-    2. Cada pelicula este asociada a una categorías
+    1. Los generos deben estar declaradas en arbol general (AG)
+    2. Cada pelicula este asociada a un generos
 - **Flujo principal**:
-    1. El usuario elije la opcion de buscar por categorías
-    2. El sistema muestra las categorías disponibles
+    1. El usuario elije la opcion de buscar por generos
+    2. El sistema muestra las generos disponibles
     3. El usuario selecciona una categoria
-    4. El sistema busca y muestra las peliculas asociadas
+    4. El sistema busca y muestra las peliculas asociadas al genero
+    (si el genero elegido tiene otros generos tambien se mostraran sus peliculas)
 - **Flujo alternativo**: En caso de elegir una categoria inexistente el sistema informa que no existe 
-
--  **Aclaraciones**: si peliculas tiene subcategorias tembien apareceran en ellas
-
     
 
 
