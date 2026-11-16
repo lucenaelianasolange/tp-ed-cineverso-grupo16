@@ -23,11 +23,7 @@
 ## Funciones iniciales:
 1. Listar todos los elementos.
 2.  Buscar Elementos por titulo.
-3. Listar por Filtro: 
-(Genero)
-(Actor)
-(Director)
-(Año)
+3. Listar por peliculas por genero.
 4. Historial depeliculas vistas.
 5. Peliculas recomendadas:
 (Genero)
@@ -49,7 +45,7 @@
 #                                  #
 #     1-Ver listado                #
 #     2-Buscar Pelicula            #
-#     3-Buscar por Filtro          #
+#     3-Buscar por Genero          #
 #     4-Ver Recomendaciones        #
 #     5-Ver Historial              #
 #     6-Borrar Historial           #
