@@ -150,7 +150,7 @@ general resuelve otro (jerarquización del dominio)
 
 ## Errores que tuvimos 
 
-a la hora de importar el arbol avl tubimos errores de importacion, de la cual tivimos que modificar las importaciones de pruebas,
+a la hora de importar el arbol avl tubimos errores de importacion, de la cual tibimos que modificar las importaciones de pruebas,
 errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son capaces de comprovar si "matrix y jumanjy" y ordenarlas pero a la hora de comparar "10" "2" y "1" los ordena "1" "10"  "2"
 
   Altura BST: 900
@@ -159,3 +159,45 @@ errores de implementacion, en probar_avl.py y medir_tiempo , las estructuras son
   Tiempo búsqueda BST (ms): 165.3621
   Tiempo búsqueda AVL (ms): 0.9971
 
+
+## DATOS DE PRUEBA
+#script de prueba 
+
+Géneros
+├── Acción
+│   ├── acción
+│   ├── acción y aventura
+│   └── guerra
+│
+├── Ciencia ficción
+│   ├── ciencia ficción
+│   ├── ficción
+│   ├── ciencia ficción y fantasía
+│   ├── fantasía
+│   ├── espacio
+│   └── futuro
+│
+├── Amor
+│   ├── amor
+│   ├── romántica
+│   └── romance
+│
+├── Comedia
+│   ├── comedia
+│   └── comedia romántica
+│
+├── Animadas
+│   ├── animadas
+│   ├── dibujos animados
+│   ├── anime
+│   ├── animación
+│   └── animación 3d
+│
+└── Suspenso
+    ├── suspenso
+    ├── thriller
+    ├── misterio
+    ├── suspense
+    ├── terror
+    ├── drama
+    └── drama psicológico
