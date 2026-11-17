@@ -14,13 +14,14 @@ Uso:
     arbol.agregar_hijo(nodo_cat, "Viajes temporales")
 """
 
-
 class NodoGeneral:
     """Nodo de un árbol general: tiene un dato y una lista de hijos."""
 
     def __init__(self, dato):
         self.dato = dato
-        self.hijos = []
+        self.hijos = [] # Lista de categorias
+        self.peliculas = []  # Lista para almacenar películas asociadas a este nodo
+
 
     def __repr__(self):
         return f"Nodo({self.dato})"
@@ -53,6 +54,25 @@ class ArbolGeneral:
         nuevo_nodo = NodoGeneral(dato)
         nodo_padre.hijos.append(nuevo_nodo)
         return nuevo_nodo
+
+    def agregar_pelicula(self, genero, pelicula):
+        """Agrega una película a un nodo de (género) específico."""
+        nodo = self.buscar(genero.lower())
+        if nodo is None:
+            print(f"Género '{genero}' no encontrado en el árbol.")
+            return False
+        #     raise ValueError(f"Género '{genero}' no encontrado en el árbol.")
+        nodo.peliculas.append(pelicula)
+        return True  # Retorna el nodo al que se agregó la película
+
+    def peliculas_de_rama(self, genero):
+        """Devuelve todas las películas de un nodo y sus hijos (recursivo)."""
+        resultado = list(genero.peliculas)  # Agrega las películas del nodo actual
+        for hijo in genero.hijos:
+            resultado.extend(self.peliculas_de_rama(hijo))  # Recurre a los hijos
+        return resultado
+    
+    
 
     def buscar(self, valor):
         """Busca un nodo cuyo dato == valor en todo el árbol (búsqueda en amplitud).
