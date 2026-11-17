@@ -3,6 +3,9 @@ from modelos.peliculas import Pelicula
 import json
 
 from estructuras.avl import AVL
+from estructuras.grafo import Grafo
+from algoritmos.bfs import bfs
+from algoritmos.dfs import dfs
 
 def cargar_datos():
     with open("datos/peliculas.json", "r", encoding="utf-8") as f:
@@ -57,10 +60,41 @@ def filtrar(peliculas):
         if genero.lower() in p.genero.lower():
             print(p)
 
+def crear_grafo(peliculas):
+    grafo=Grafo()
+    for pelicula in peliculas:                    #agregar todas las peliculas como vertices
+        grafo.agregar_vertice(pelicula.titulo) 
+    for i, pelicula1 in enumerate (peliculas):     #conectar peliculas que tengan el mismo genero
+        for pelicula2 in peliculas[i+1:]:
+            if pelicula1.genero.strip().lower() == pelicula2.genero.strip().lower():
+                grafo.agregar_arista(pelicula1.titulo, pelicula2.titulo, 10)  
+    return grafo
+
+def recomendar_peliculas(grafo):
+    titulo=input("Ingrese el título de la película para obtener recomendaciones: ")
+    pelicula=next ( (p for p in grafo.vertices if p.lower() == titulo.strip().lower()),
+    None)
+    if pelicula is None:
+        print("La película no se encuentra en el grafo.")
+        return
+    
+    recomendaciones = grafo.obtener_recomendaciones(pelicula)    
+
+    if not recomendaciones:
+        print("No hay recomendaciones disponibles para esta película.")
+        return
+    print(f"Recomendaciones para '{pelicula}':")
+    for titulo,peso in recomendaciones:
+        print(f"- {titulo} (peso: {peso})") 
+
+
+
+
 def main ():
     peliculas = cargar_datos()
     arbol = AVL()
     arbol_general = ArbolGeneral()
+    grafo=crear_grafo(peliculas)
 
     arbol_general.insertar_raiz("Películas")
     accion = arbol_general.agregar_hijo(arbol_general.raiz, "Acción")
@@ -95,7 +129,7 @@ def main ():
         elif opcion == "2":
             buscar(arbol)
         elif opcion == "4":
-            pass
+            recomendar_peliculas(grafo)
         elif opcion == "3":
             mostrar_generos(arbol_general)
             genero = input("Ingrese el número del género para ver las películas recomendadas: ")

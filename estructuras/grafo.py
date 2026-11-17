@@ -3,31 +3,42 @@ class Grafo:
         self.vertices = {}
         self.aristas = {}
 
-    def agregar_vertice(self, vertice):
-        if vertice not in self.vertices:
-            self.vertices[vertice] = []
-            self.aristas[vertice] = []
+    def agregar_vertice(self, pelicula):
+        if pelicula not in self.vertices:
+            self.vertices[pelicula] = True
+            self.aristas[pelicula] = {}
 
-    def agregar_arista(self, vertice1, vertice2):
-        if vertice1 in self.vertices and vertice2 in self.vertices:
-            self.aristas[vertice1].append(vertice2)
-            self.aristas[vertice2].append(vertice1)  # Para grafos no dirigidos
+    def agregar_arista(self, pelicula1, pelicula2, peso):
+        if pelicula1 in self.vertices and pelicula2 in self.vertices:
+            self.aristas[pelicula1] [pelicula2]=peso
+            self.aristas[pelicula2] [pelicula1]=peso 
 
-    def obtener_vertices(self):
-        return list(self.vertices.keys())
+    def obtener_recomendaciones(self, pelicula):
+        if pelicula not in self.vertices:
+            return []
+        recomendaciones= []
+
+        for otra_pelicula, peso in self.aristas [pelicula].items():
+            recomendaciones.append((otra_pelicula, peso))
+
+        recomendaciones.sort(key=lambda x:x[1], reverse=True)
+        return recomendaciones
+
+    def mostrar_grafo(self):
+        for pelicula, conexiones in self.aristas.items():
+            print (f"{pelicula}: {conexiones}")
 
     def obtener_aristas(self):
         aristas = []
         for vertice, adyacentes in self.aristas.items():
-            for adyacente in adyacentes:
-                if (adyacente, vertice) not in aristas:  # Evitar duplicados
-                    aristas.append((vertice, adyacente))
+            for adyacente, peso in adyacentes.items():
+                if (adyacente, vertice) not in [(a[0], a[1]) for a in aristas]:  # Evitar duplicados
+                    aristas.append((vertice, adyacente, peso))
         return aristas
-    def mostrar_grafo(self):
-        for vertice, adyacentes in self.aristas.items():
-            print(f"{vertice}: {adyacentes}")
-
-    def buscar_camino(self, inicio, fin, camino=[]):
+  
+    def buscar_camino(self, inicio, fin, camino=None):
+        if camino is None:
+            camino = []
         camino = camino + [inicio]
         if inicio == fin:
             return camino
