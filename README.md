@@ -107,7 +107,6 @@ tp-ed-cineverso-grupo16
 │   └── peliculas.py
 ├── test
 │   ├── algoritmos
-│   │   ├── __pycache__
 │   │   ├── medir_tiempos.py
 │   │   ├── probar_avl.py
 │   │   └── probar_bst.py
