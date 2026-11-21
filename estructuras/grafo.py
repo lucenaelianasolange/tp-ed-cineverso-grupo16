@@ -8,7 +8,7 @@ class Grafo:
             self.vertices[pelicula] = True
             self.aristas[pelicula] = {}
 
-    def agregar_arista(self, pelicula1, pelicula2, peso):
+    def agregar_arista(self, pelicula1, pelicula2, peso): 
         if pelicula1 in self.vertices and pelicula2 in self.vertices:
             self.aristas[pelicula1] [pelicula2]=peso
             self.aristas[pelicula2] [pelicula1]=peso 

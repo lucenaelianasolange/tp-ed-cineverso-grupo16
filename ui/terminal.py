@@ -185,35 +185,19 @@ def main ():
         terminar.mostrar_menu()
         opcion = input("Seleccione una opción: ")
         if opcion == "1":
-            listar(peliculas)
+            terminar.listar(peliculas)
+
         elif opcion == "2":
-            buscar(arbol)
+            terminar.buscar(arbol)
+        
+        elif opcion == "3":
+            terminar.repetir_accion(lambda: terminar.explorar_categoria(arbol_general), "explorar otra categoría")
+
         elif opcion == "4":
             recomendar_peliculas(grafo)
-        elif opcion == "3":
-            mostrar_generos(arbol_general)
-            genero = input("Ingrese el número del género para ver las películas recomendadas: ")
-            match genero:
-                case "1":
-                   result = arbol_general.listar_hijos(accion)
-                   print("Películas de Acción:")
-                   for p in result:
-                       print(f" - {p}")
 
-        match opcion:
-            case "1":
-                terminar.listar(peliculas)
-            case "2":
-                terminar.repetir_accion(terminar.buscar(arbol),"buscar otra película")
-                        
-            case "3":
-                terminar.mostrar_categorias(arbol_general.raiz)
-                terminar.explorar_categoria(arbol_general)
-
-            case "4":
-                pass
-            case "7":
-                print("Saliendo del programa...")
-                break
-            case _:
+        elif opcion == "7":
+            print("Saliendo del programa...")
+            break
+        else:
                 print("Opción inválida. Por favor, intente nuevamente.")
